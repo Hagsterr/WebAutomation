@@ -2,10 +2,12 @@ package syllabus;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.ex.ElementNotFound;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriverException;
+import junit.framework.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,19 +37,18 @@ public class Syllabus {
     }
 
 
-    protected static void openLTU () { // Starts up the webdriver and configures the options
+    public void openLTU () { // Starts up the webdriver and configures the options
 
         try {
-
             open("https://www.ltu.se");
             Configuration.holdBrowserOpen = true;
             WebDriverRunner.getWebDriver().manage().window().maximize(); // Maximizes the window
-
         } catch (WebDriverException e) {
             System.out.println("Could not get website");
         }
     }
-    protected static void closeCookies () {
+
+    public void closeCookies () {
         try {
 
             System.out.println("Clicking on cookies");
@@ -62,7 +63,8 @@ public class Syllabus {
         }
 
     }
-    protected static void openEducation(){
+
+    public void openEducation(){
         try {
 
             System.out.println("Clicking on utbildning");
@@ -76,7 +78,8 @@ public class Syllabus {
         }
 
     }
-    protected static void openProgramCat() {
+
+    public void openProgramCat() {
         try {
 
             System.out.println("Clicking on program category");
@@ -90,7 +93,7 @@ public class Syllabus {
         }
     }
 
-    protected static void openProgram() {
+    public  void openProgram() {
         try {
 
             System.out.println("Clicking on program");
@@ -103,7 +106,8 @@ public class Syllabus {
             System.out.println("Element no longer valid");
         }
     }
-    protected static void openCourses(){
+
+    public void openCourses(){
         try{
 
             System.out.println("Clicking on mandatory courses");
@@ -116,7 +120,8 @@ public class Syllabus {
             System.out.println("Element no longer valid");
         }
     }
-    protected static void openCourse(){
+
+    public void openCourse(){
         try{
 
             System.out.println("Clicking on program course I0006N");
@@ -129,7 +134,8 @@ public class Syllabus {
             System.out.println("Element no longer valid");
         }
     }
-    protected static void openSyllabus(){
+
+    public void openSyllabus(){
         try {
 
             System.out.println("Clicking on course syllabus");
@@ -142,7 +148,8 @@ public class Syllabus {
             System.out.println("Element no longer valid");
         }
     }
-    protected static void downloadSyllabus(){
+
+    public  void downloadSyllabus(){
         try{
             System.out.println("Downloading PDF file of I0006N syllabus");
             $(By.xpath("//*[@id=\"utbkatForm\"]/div[4]/a")).click();
