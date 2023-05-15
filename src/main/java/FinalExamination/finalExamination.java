@@ -117,6 +117,12 @@ public class finalExamination {
             System.out.println("Screenshot saved to " + filePath);
         } catch (IOException e) {
             System.out.println("An exception occurred while saving the screenshot: " + e.getMessage());
+
+
         }
+
+        $("a#global_nav_profile_link").click();
+        //logout
+        $(("button[class='fOyUs_bGBk fOyUs_fKyb fOyUs_cuDs fOyUs_cBHs fOyUs_eWbJ fOyUs_fmDy fOyUs_eeJl fOyUs_cBtr fOyUs_fuTR fOyUs_cnfU fQfxa_bGBk']")).click();
     }
 }
