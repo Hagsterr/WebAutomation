@@ -125,16 +125,12 @@ public class Transcript {
 
         $(By.xpath("//*[@id=\"main\"]/div/ladok-intyg/ladok-listning-av-skapade-intyg/div/div/ladok-accordion/div/ladok-list-kort[1]/div/div[1]/div/div[1]/a")).click();
 
+        //Log out
 
-        try {
-            String filePath = "target/intyg.pdf";
-            File pdfFile = $(By.cssSelector("#pdf-download-link")).download();
-            File destFile = new File(filePath);
-            Files.move(pdfFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            System.out.println("Error downloading/moving the PDF file: " + e.getMessage());
-        }
-        Configuration.holdBrowserOpen = false;
+
+        $(By.xpath("//*[@id=\"sidomeny\"]/div[1]/ul[3]/li/a")).click();
+
+         Configuration.holdBrowserOpen = false;
 
 
 
