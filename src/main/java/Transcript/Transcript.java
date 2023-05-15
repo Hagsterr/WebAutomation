@@ -1,20 +1,19 @@
 package Transcript;
 
 import com.codeborne.selenide.Condition;
+
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 
 import com.codeborne.selenide.ex.ElementNotFound;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.StandardCopyOption;
-import java.nio.file.Files;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
+
 
 
 public class Transcript {
@@ -41,21 +40,19 @@ public class Transcript {
         } catch (ElementNotFound e) {
             System.out.println("Could not find clickable element for closing cookies");
 
-        } catch (StaleElementReferenceException e){
-            System.out.println("Element no longer valid");
         }
 
 
         try {
             // Click the "Student" link.
-            $(By.xpath("//a[text()='Student']")).click();
+            $(byXpath("//a[text()='Student']")).click();
         } catch (Exception e) {
             System.out.println("Could not click on the 'Student' link.");
         }
 
         try {
             // Click the "Transcript/registerutdrag" link.
-            $(By.xpath("//*[@id=\"maincontent\"]/div[1]/div/div[2]/div/div/div/div/ul/li[1]/a/div"))
+            $(byXpath("//*[@id=\"maincontent\"]/div[1]/div/div[2]/div/div/div/div/ul/li[1]/a/div"))
                     .shouldHave(Condition.visible).click();
         } catch (Exception e) {
             System.out.println("Could not click on the 'Transcript/registerutdrag' link.");
@@ -63,21 +60,21 @@ public class Transcript {
 
         try {
             // Click the "find your institution" button.
-            $(By.xpath("/html/body/ladok-root/div/main/div/ladok-inloggning/div/div/div/div/div/div/div/ladok-student/div[1]/a/div/div[2]/span[2]")).click();
+            $(byXpath("/html/body/ladok-root/div/main/div/ladok-inloggning/div/div/div/div/div/div/div/ladok-student/div[1]/a/div/div[2]/span[2]")).click();
         } catch (Exception e) {
             System.out.println("Could not click on the 'find your institution' button.");
         }
 
         try {
             // Search for ltu.
-            $(By.xpath("//*[@id=\"searchinput\"]")).setValue("ltu");
+            $(byXpath("//*[@id=\"searchinput\"]")).setValue("ltu");
         } catch (Exception e) {
             System.out.println("Could not search for 'ltu'.");
         }
 
         try {
             // Wait for ltu suggestion to become available and then click on it.
-            $(By.xpath("//*[@id=\"ds-search-list\"]/a/li/div/div[1]"))
+            $(byXpath("//*[@id=\"ds-search-list\"]/a/li/div/div[1]"))
                     .shouldHave(Condition.visible).click();
         } catch (Exception e) {
             System.out.println("Could not click on the 'ltu' suggestion.");
@@ -104,10 +101,10 @@ public class Transcript {
         }
 
         //Click on login
-        $(By.xpath("//*[@id=\"fm1\"]/section[3]/input[4]")).click();
+        $(byXpath("//*[@id=\"fm1\"]/section[3]/input[4]")).click();
 
         //Click on the Transcript-button.
-        $(By.xpath("//*[@id=\"sidomeny-ul\"]/li[3]/ladok-behorighetsstyrd-nav-link/a")).click();
+        $(byXpath("//*[@id=\"sidomeny-ul\"]/li[3]/ladok-behorighetsstyrd-nav-link/a")).click();
 
 
         /* @Disabled - the create transcript works.
@@ -123,10 +120,10 @@ public class Transcript {
 
         //Click on the created Transcript to download it.
 
-        $(By.xpath("//*[@id=\"main\"]/div/ladok-intyg/ladok-listning-av-skapade-intyg/div/div/ladok-accordion/div/ladok-list-kort[1]/div/div[1]/div/div[1]/a")).click();
+        $(byXpath("//*[@id=\"main\"]/div/ladok-intyg/ladok-listning-av-skapade-intyg/div/div/ladok-accordion/div/ladok-list-kort[1]/div/div[1]/div/div[1]/a")).click();
 
         //Log out
-        $(By.xpath("//*[@id=\"sidomeny\"]/div[1]/ul[3]/li/a")).click();
+        $(byXpath("//*[@id=\"sidomeny\"]/div[1]/ul[3]/li/a")).click();
 
          Configuration.holdBrowserOpen = false;
 
