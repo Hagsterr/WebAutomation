@@ -1,6 +1,6 @@
 package FinalExamination;
 
-import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 import com.codeborne.selenide.*;
@@ -10,8 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
-
-import org.openqa.selenium.By;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,7 +36,7 @@ public class finalExamination {
 
         try {
             // Click the "Acceptera cookies" button to dismiss the popup
-            $(By.xpath("//button[text()='Tillåt alla cookies']")).click();
+            $(byXpath("//button[text()='Tillåt alla cookies']")).click();
 
             // Verify that the popup has disappeared
             $(Selectors.byText("Vi använder kakor")).shouldNot(Condition.appear);
@@ -48,7 +46,7 @@ public class finalExamination {
 
 
         // Click the "Student" link
-        $(By.xpath("//a[text()='Student']")).click();
+        $(byXpath("//a[text()='Student']")).click();
 
         try {
             // Click the "Logga in i Canvas" button
@@ -64,7 +62,7 @@ public class finalExamination {
             // Fill in the username and password fields with your LTU credentials
             $("#username").setValue(username);
             $("#password").setValue(password);
-            $(By.cssSelector(".btn-submit")).click();
+            $(byCssSelector(".btn-submit")).click();
         } catch (Exception e) {
             System.out.println("An exception occurred: " + e.getMessage());
         }
@@ -72,11 +70,11 @@ public class finalExamination {
 
         $("svg.ic-icon-svg.ic-icon-svg--courses").click();
 
-        $(By.linkText("I0015N, Test av IT-system, Lp4, V23")).click();
+        $(byLinkText("I0015N, Test av IT-system, Lp4, V23")).click();
 
-        $(By.cssSelector("a[href='/courses/18863/modules'].modules")).click();
+        $(byCssSelector("a[href='/courses/18863/modules'].modules")).click();
 
-        $(By.linkText("Final Examination Information")).click();
+        $(byLinkText("Final Examination Information")).click();
 
 
 
@@ -89,7 +87,7 @@ public class finalExamination {
         }
 
         //retrieving the final examination date and time
-        System.out.println($(By.xpath("//*[@id='wiki_page_show']/div/p[4]")).getText());
+        System.out.println($(byXpath("//*[@id='wiki_page_show']/div/p[4]")).getText());
 
 
 
