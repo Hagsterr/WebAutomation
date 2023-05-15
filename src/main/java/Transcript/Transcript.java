@@ -126,8 +126,6 @@ public class Transcript {
         $(By.xpath("//*[@id=\"main\"]/div/ladok-intyg/ladok-listning-av-skapade-intyg/div/div/ladok-accordion/div/ladok-list-kort[1]/div/div[1]/div/div[1]/a")).click();
 
         //Log out
-
-
         $(By.xpath("//*[@id=\"sidomeny\"]/div[1]/ul[3]/li/a")).click();
 
          Configuration.holdBrowserOpen = false;
